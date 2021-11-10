@@ -26,22 +26,18 @@ bool PCAPDLL::ok() const
 	return dll != nullptr;
 }
 
+#define NPCAP // Where should this be defined? Looks like if defined, wanting wpcap.dll in eg C:\windows\System32\Npcap
 PCAPDLL::PCAPDLL()
 {
-	DLL_DIRECTORY_COOKIE cookie = 0;
 #ifdef NPCAP
-	TCHAR dllPath[512] = { 0 };
-	int len = GetSystemDirectory(dllPath, 480); // be safe
-	if (len) {
-		_tcscat_s(dllPath, 512, TEXT("\\Npcap"));
-		cookie = AddDllDirectory(dllPath);
-	}
+	dll = LoadLibrary("wpcap.dll");
+	int rc = GetLastError();
+	if (dll != NULL)
+		printf("\nLoadLibrary(wpcap.dll): success!\n");
+	else
+		printf("\nLoadLibrary(wpcap.dll): failed to load with GetLastError:%d!\n", rc);
+
 #endif
-	dll = LoadLibraryEx(TEXT("wpcap.dll"), nullptr, LOAD_LIBRARY_SEARCH_USER_DIRS);
-
-	if (cookie)
-		RemoveDllDirectory(cookie);
-
 	if(dll == NULL) {
 		closeDLL();
 	} else {
