@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packet\canpacket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\communication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\device\extensions\flexray\controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\decoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\device\device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\device\devicefinder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\driver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\encoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packet\ethernetpacket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\ethernetpacketizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\api\icsneocpp\event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\api\icsneocpp\eventmanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\device\extensions\flexray\extension.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\message\flexray\control\flexraycontrolmessage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packet\flexraypacket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\api\icsneocpp\icsneocpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\device\idevicesettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packet\iso9141packet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\multichannelcommunication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\message\neomessage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packetizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\platform\windows\pcap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\platform\windows\internal\pcapdll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\platform\windows\registry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\platform\windows\vcp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\api\icsneocpp\version.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packet\versionpacket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CF83F90F-06AB-3AF3-A52A-9069673914EF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icsneolegacy.vcxproj">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

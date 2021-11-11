@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>icsneocpp</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">icsneocpp</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">icsneocpp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build\Releasex64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">icsneocpp.dir\Releasex64\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">icsneocpp</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">icsneocpp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;WPCAP;HAVE_REMOTE;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;WPCAP;HAVE_REMOTE;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+    <Link>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;WPCAP;HAVE_REMOTE;WIN32_LEAN_AND_MEAN</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;WPCAP;HAVE_REMOTE;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x86</AdditionalOptions>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;WPCAP;HAVE_REMOTE;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;WPCAP;HAVE_REMOTE;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;WPCAP;HAVE_REMOTE;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;WPCAP;HAVE_REMOTE;WIN32_LEAN_AND_MEAN;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\build;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\api\icsneocpp\icsneocpp.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\api\icsneocpp\event.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\api\icsneocpp\eventmanager.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\api\icsneocpp\version.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\message\flexray\control\flexraycontrolmessage.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\message\neomessage.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packet\flexraypacket.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packet\canpacket.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packet\ethernetpacket.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packet\versionpacket.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packet\iso9141packet.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\decoder.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\encoder.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\ethernetpacketizer.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\packetizer.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\multichannelcommunication.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\communication.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\communication\driver.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\device\extensions\flexray\extension.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\device\extensions\flexray\controller.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\device\idevicesettings.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\device\devicefinder.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\device\device.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\platform\windows\pcap.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\platform\windows\registry.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\platform\windows\vcp.cpp" />
+    <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\platform\windows\internal\pcapdll.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icsneolegacy.vcxproj" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
