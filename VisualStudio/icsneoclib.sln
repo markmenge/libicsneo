@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.1500
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "icsneoc", "icsneoc.vcxproj", "{4F69F885-162B-3AA1-84A6-A12D209373C9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175} = {4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "icsneocpp", "icsneocpp.vcxproj", "{4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175}"
 EndProject
@@ -18,14 +21,29 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxp
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "icsneolegacy", "icsneolegacy.vcxproj", "{1C0ED9C0-2F6D-48ED-A00A-604815494CF8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4F69F885-162B-3AA1-84A6-A12D209373C9} = {4F69F885-162B-3AA1-84A6-A12D209373C9}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "icsneoc-static", "icsneoc-static.vcxproj", "{2918FA7A-6E46-4E1C-8C8C-4ABDEAED9341}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175} = {4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libicsneoc-interactive-example", "libicsneoc-interactive-example.vcxproj", "{4280237A-B112-42EB-A833-B19F57A59017}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175} = {4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libicsneocpp-interactive-example", "libicsneocpp-interactive-example.vcxproj", "{CD5A884E-BB17-44FA-82FA-7966DC14946F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175} = {4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libicsneocpp-simple-example", "libicsneocpp-simple-example.vcxproj", "{7D43CCAC-9133-4933-ABDA-7DAFACFA7750}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175} = {4EAC51A8-09FE-4FDC-87AA-85B6B8FF4175}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
