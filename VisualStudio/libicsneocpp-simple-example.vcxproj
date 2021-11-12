@@ -87,10 +87,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -105,10 +105,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -124,6 +124,7 @@
       <ImportLibrary>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/examples/cpp/simple/Debug/libicsneocpp-simple-example.lib</ImportLibrary>
       <ProgramDataBaseFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/examples/cpp/simple/Debug/libicsneocpp-simple-example.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -131,7 +132,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -149,10 +150,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -175,7 +176,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -193,10 +194,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -219,7 +220,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -237,10 +238,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\include;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\AFTER;C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\third-party\winpcap\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\AFTER;$(ProjectDir)..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
