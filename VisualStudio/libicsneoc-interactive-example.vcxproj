@@ -90,7 +90,7 @@
       <AdditionalIncludeDirectories>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\examples\c\interactive\..\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <ExceptionHandling>
       </ExceptionHandling>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
@@ -209,7 +209,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/examples/c/interactive/Release/libicsneoc-interactive-example.lib</ImportLibrary>
+      <ImportLibrary>
+      </ImportLibrary>
       <ProgramDataBaseFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/examples/c/interactive/Release/libicsneoc-interactive-example.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -253,10 +254,12 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/examples/c/interactive/Release/libicsneoc-interactive-example.lib</ImportLibrary>
+      <ImportLibrary>
+      </ImportLibrary>
       <ProgramDataBaseFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/examples/c/interactive/Release/libicsneoc-interactive-example.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <DataExecutionPrevention>false</DataExecutionPrevention>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
