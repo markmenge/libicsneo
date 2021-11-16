@@ -158,12 +158,31 @@ char *ISOKWPParms[] =
 	 "p2_500us", "p3_500us", "p4_500us", "chksum_enabled"
 };
 
+char getCharInput(int numArgs, ...);
 
 bool LoadDLLAPI(HINSTANCE &hAPIDLL)
 {
- 	if((hAPIDLL = LoadLibrary("icsneolegacy.dll")) == NULL)
-		return false;
+	char ans = 0;
+	
+	printf("Which DLL would you like to load?\n[1] - icsneo40.dll\n[2] - icsneolegacy.dll\n");
+	ans = getCharInput(2, '1', '2');
 
+	if (ans == '1')
+	{
+		if ((hAPIDLL = LoadLibrary("icsneo40.dll")) == NULL)
+		{
+			printf("Problem loading icsneo40.dll\nMake sure dll is accessible");
+			return false;
+		}
+	}
+	else
+	{
+		if ((hAPIDLL = LoadLibrary("icsneolegacy.dll")) == NULL)
+		{
+			printf("Problem loading icsneo40.dll\nMake sure dll is accessible");
+			return false;
+		}
+	}
 	icsneoFindDevices =    (FINDNEODEVICES) GetProcAddress(hAPIDLL,              "icsneoFindDevices");
 	icsneoOpenNeoDevice =     (OPENNEODEVICE) GetProcAddress(hAPIDLL,               "icsneoOpenNeoDevice");
  	icsneoOpenNeoDeviceByChannels = (OPENNEODEVICEBYCHANNELS) GetProcAddress(hAPIDLL, "icsneoOpenNeoDeviceByChannels");

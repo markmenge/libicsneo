@@ -29,6 +29,8 @@ Next the tester verifies that all the messages have been properly received
 #include <conio.h>
 using namespace std;
 
+char getCharInput(int numArgs, ...);
+
 // 04/22/2016 - menge add loopback tests and ProductionLoopbackTest
 //                    
 #define SLEEP_MS 1
@@ -66,7 +68,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	if(!LoadDLLAPI(hDLL)) 
 	{	
 		//problem, close the application
-		printf("Problem loading Library\r\nMake sure icsneolegacy.dll is installed and accessable\r\nPress any key to Exit");
 		cInputCommand = _getch();
 		return(1);
 	}
@@ -87,12 +88,13 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf("1 - Connect to First Device\n");
 		printf("2 - Connect to Second Device\n");
 		printf("C - Get Messages\n");
-		printf("D - Send Message CANFD\n");
-		printf("E - Get Errors\n");
-		printf("F - Set HS CAN to 250K\n");
-		printf("G - Set HS CAN to 500K\n");
+		printf("D - Send CANFD Message\n");
+		printf("E - Send Extended Message\n");
+		printf("F - Get Errors\n");
+		printf("G - Set HS CAN to 250K\n");
+		printf("H - Set HS CAN to 500K\n");
 
-		printf("H - Disconnect from device\n");
+		printf("I - Disconnect from device\n");
 		printf("4 - Set CAN buses to 250000 baud rate\n");
 		printf("5 - Set CAN buses to 500000 baud rate\n");
 		printf("6 - Set CAN buses to 666667 baud rate\n");
@@ -121,16 +123,19 @@ int _tmain(int argc, _TCHAR* argv[])
 		case 'C': //C - Get Messages
 			GetMessagesFromDevice();
 			break;
-		case 'D': //D - Send Message
-			SendMessageFromDevice();
+		case 'D': //D - Send CANFD Message
+			SendMessageFromDevice(false, true);
 			break;
-		case 'E': //E - Get Errors
+		case 'E': // Send CAN29 Message
+			SendMessageFromDevice(false, false);
+			break;
+		case 'F': // Get errors
 			GetErrorsFromDevice();
 			break;
-		case 'F': //F - Set HS CAN to 250K
+		case 'G': // Set HS CAN to 250K
 			SetHSCANBaudRatetoDevice(250000);
 			break;
-		case 'G': //G - Set HS CAN to 500K
+		case 'H': // Set HS CAN to 500K
 			SetHSCANBaudRatetoDevice(500000);
 			break;
 		case '4': //4 - Set CAN to 250000
@@ -142,7 +147,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		case '5': //G - Set CAN to 500000
 			SetAllCANBaudRates(500000);
 			break;
-		case 'H':  //H - Disconnect from device
+		case 'I':  //H - Disconnect from device
 			DisconnectFromDevice();
 			break;
 		case 'L':  //L - Loopbacktest
@@ -160,7 +165,6 @@ int _tmain(int argc, _TCHAR* argv[])
 		case 'R':  //
 			ConnectDisconnectTest(1);
 			break;
-
 		case 'X': //X - Exit
 			if(m_bPortOpen==true) DisconnectFromDevice();
 			UnloadDLLAPI(hDLL);
@@ -343,7 +347,7 @@ void SendMessageFromDevice(BOOL bQuiet, BOOL bFd)
 
 	unsigned char CanFDptr[NUMFDBYTES];
 	for(int i=0;i<NUMFDBYTES;i++)
-		CanFDptr[i] = i;	
+		CanFDptr[i] = i;
 
 	memset(&stMessagesTx, 0, sizeof(stMessagesTx));
 	//make sure the device is open
@@ -352,6 +356,9 @@ void SendMessageFromDevice(BOOL bQuiet, BOOL bFd)
 		printf("neoVI not opened\r\n");
 		return;  
 	}
+
+	for(int i=0;i<8;i++)
+		stMessagesTx.Data[i] = i;
 
 	//Send on HS CAN
 	stMessagesTx.NetworkID = NETID_HSCAN; 
@@ -1151,3 +1158,51 @@ void ConnectDisconnectTest(int device)
 		}
 	}
 }
+
+
+/**
+* \brief Used to check character inputs for correctness (if they are found in an expected list)
+* \param[in] numArgs the number of possible options for the expected character
+* \param[in] ... the possible options for the expected character
+* \returns the entered character
+*
+* This function repeatedly prompts the user for input until a matching input is entered
+* Example usage: char input = getCharInput(5, 'F', 'u', 'b', 'a', 'r');
+*/
+char getCharInput(int numArgs, ...) 
+{
+	// 99 chars shold be more than enough to catch any typos
+	char input[99];
+	bool found = false;
+
+	va_list vaList;
+	va_start(vaList, numArgs);
+
+	char* list = (char*) calloc(numArgs, sizeof(char));
+	for(int i = 0; i < numArgs; ++i) {
+		*(list + i) = va_arg(vaList, int);
+	}
+
+	va_end(vaList);
+
+	while(!found) {
+		fgets(input, 99, stdin);
+		if(strlen(input) == 2) {
+			for(int i = 0; i < numArgs; ++i) {
+				if(input[0] == *(list + i)) {
+					found = true;
+					break;
+				}
+			}
+		}
+
+		if(!found) {
+			printf("Input did not match expected options. Please try again.\n");
+		}
+	}
+
+	free(list);
+
+	return input[0];
+}
+
