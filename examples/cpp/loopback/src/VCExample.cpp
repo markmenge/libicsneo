@@ -75,8 +75,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	system("Color A"); //Change window color
 
 	//Get the DLL Version number
-	iVerNumber=icsneoGetDLLVersion();
-	printf("ICS icsneo40.dll version %d\r\n\r\n", iVerNumber);
+
 
 	while (bKeepRunning)
 	{

@@ -177,9 +177,9 @@ bool LoadDLLAPI(HINSTANCE &hAPIDLL)
 	}
 	else
 	{
-		if ((hAPIDLL = LoadLibrary("icsneolegacy.dll")) == NULL)
+		if ((hAPIDLL = LoadLibrary("../../../icsneolegacy.dll")) == NULL)
 		{
-			printf("Problem loading icsneo40.dll\nMake sure dll is accessible");
+			printf("Problem loading icsneolegacy.dll\nMake sure dll is accessible");
 			return false;
 		}
 	}
@@ -308,7 +308,8 @@ bool LoadDLLAPI(HINSTANCE &hAPIDLL)
 
 		return false;
 	}
-		
+	int iVerNumber=icsneoGetDLLVersion();
+	printf("ICS dll version %d\r\n\r\n", iVerNumber);
     return true;
 }	
 
