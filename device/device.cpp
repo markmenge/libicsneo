@@ -395,6 +395,32 @@ bool Device::goOffline() {
 	return true;
 }
 
+#pragma pack(push, 1)
+// From std::vector<uint8_t> EthernetPacketizer::EthernetPacket::getBytestream() const {
+struct IcsMessageOnEthernetPacket
+{
+	uint8_t destMAC[6]; // 0..5
+	uint8_t srcMAC[6];	// 6..11
+	uint16_t Protocol; // Should be 0xcab1	12..13  // Big endian
+	uint32_t icsEthernetHeader; // 0xaaaa5555 OK	14..17	// Big endian
+	uint16_t payloadSize;	// 18..19	little endian
+	uint16_t packetNumber; // 20..21	little endian
+
+						   // packetInfo Big endian
+	uint8_t	reserved;			// 22
+	uint8_t firstPiece : 1;		// 23.0
+	uint8_t lastPiece : 1;		// 23.1
+	uint8_t bufferHalfFull : 1;	// 23.2
+	uint8_t padding : 4;		// 23.3..6
+	uint8_t ProtocolVersion1 : 1;// 23.7
+
+	uint8_t AA; // 24..27			AA for some reason
+	uint8_t B1; // 24..27			((1 << 4) | (uint8_t)Network::NetID::Main51), // Packet size of 1 on NETID_MAIN51
+	uint8_t Command; // 24..27		(uint8_t)Command::RequestSerialNumber a1
+	uint8_t B3; // 24..27			Packetizer::ICSChecksum(requestPacket.payload)
+};
+#pragma pack(pop)
+
 bool Device::transmit(std::shared_ptr<Message> message) {
 	// not open
 	if(!isOpen()) {
@@ -427,6 +453,15 @@ bool Device::transmit(std::shared_ptr<Message> message) {
 	if(!com->encoder->encode(*com->packetizer, packet, message))
 		return false;
 	
+	// Size on wire is 20 bytes
+	
+	uint8_t buffer[1000];
+	int i;
+	for (i = 0; i < packet.size(); i++)
+		buffer[i] = packet.at(i);
+
+	IcsMessageOnEthernetPacket *pMOE = (IcsMessageOnEthernetPacket *)buffer;
+
 	return com->sendPacket(packet);
 }
 

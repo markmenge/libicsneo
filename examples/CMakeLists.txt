@@ -18,6 +18,10 @@ if(LIBICSNEO_BUILD_CPP_INTERACTIVE_EXAMPLE)
 	add_subdirectory(cpp/interactive)
 endif()
 
+if(LIBICSNEO_BUILD_CPP_INTERACTIVE_EXAMPLE)
+	add_subdirectory(cpp/loopback)
+endif()
+
 # if(LIBICSNEO_BUILD_CSHARP_INTERACTIVE_EXAMPLE)
 # 	add_subdirectory(csharp)
 # endif()

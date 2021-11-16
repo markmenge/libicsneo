@@ -75,6 +75,7 @@ public:
 	std::unique_ptr<Encoder> encoder;
 	std::unique_ptr<Decoder> decoder;
 	device_eventhandler_t report;
+	static const char *icsCommandAsString(Command cmd);
 
 protected:
 	std::unique_ptr<Driver> driver;

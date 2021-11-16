@@ -76,6 +76,10 @@ bool Communication::sendCommand(Command cmd, std::vector<uint8_t> arguments) {
 	if(!encoder->encode(*packetizer, packet, cmd, arguments))
 		return false;
 
+#if _DEBUG
+	printf("Tx cmd:%s(%x) %d bytes\n", icsCommandAsString(cmd), cmd, (int)(packet.size() + 24));
+#endif
+
 	return sendPacket(packet);
 }
 
@@ -266,5 +270,31 @@ void Communication::handleInput(Packetizer& p, std::vector<uint8_t>& readBytes) 
 				dispatchMessage(msg);
 			}
 		}
+	}
+}
+
+const char *Communication::icsCommandAsString(Command cmd)
+{
+	switch (cmd)
+	{
+		case Command::EnableNetworkCommunication: return "EnableNetworkCommunication";
+		case Command::EnableNetworkCommunicationEx: return "EnableNetworkCommunicationEx";
+		case Command::RequestSerialNumber: return "RequestSerialNumber";
+		case Command::GetMainVersion: return "GetMainVersion";
+		case Command::SetSettings: return "SetSettings";
+			//case Command::GetSettings: return "GetSettings";
+		case Command::SaveSettings: return "SaveSettings";
+		case Command::UpdateLEDState: return "UpdateLEDState";
+		case Command::SetDefaultSettings: return "SetDefaultSettings";
+		case Command::GetSecondaryVersions: return "GetSecondaryVersions";
+		case Command::RequestStatusUpdate: return "RequestStatusUpdate";
+		case Command::ReadSettings: return "ReadSettings";
+		case Command::SetVBattMonitor: return "SetVBattMonitor";
+		case Command::RequestBitSmash: return "RequestBitSmash";
+		case Command::GetVBattReq: return "GetVBattReq";
+		case Command::MiscControl: return "MiscControl";
+		case Command::FlexRayControl: return "FlexRayCCommand";
+		default:
+			return "?";
 	}
 }
