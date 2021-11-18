@@ -169,6 +169,7 @@
       <ImportLibrary>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/examples/cpp/simple/Debug/libicsneocpp-simple-example.lib</ImportLibrary>
       <ProgramDataBaseFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/examples/cpp/simple/Debug/libicsneocpp-simple-example.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>

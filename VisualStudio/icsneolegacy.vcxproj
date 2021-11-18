@@ -121,7 +121,7 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Debug/icsneolegacy.lib</ImportLibrary>
+      <ImportLibrary>$(ProjectDir)$(Platform)\$(Configuration)\icsneolegacy.lib</ImportLibrary>
       <ModuleDefinitionFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/platform/windows/icsneolegacy.def</ModuleDefinitionFile>
       <ProgramDataBaseFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Debug/icsneolegacy.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
@@ -167,7 +167,7 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Debug/icsneolegacy.lib</ImportLibrary>
+      <ImportLibrary>$(ProjectDir)$(Platform)\$(Configuration)\icsneolegacy.lib</ImportLibrary>
       <ModuleDefinitionFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/platform/windows/icsneolegacy.def</ModuleDefinitionFile>
       <ProgramDataBaseFile>$(ProjectDir)$(Platform)\$(Configuration)\icsneolegacy.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
@@ -179,6 +179,14 @@
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
+    <PostBuildEvent>
+      <Command>if NOT EXIST ..\..\..\..\..\Debug GOTO EOF
+echo Executing icsneolegacy post build step
+ECHO copy "$(ProjectDir)$(Platform)\$(Configuration)\icsneolegacy.dll" ..\..\..\..\..\Debug
+copy "$(ProjectDir)$(Platform)\$(Configuration)\icsneolegacy.dll" ..\..\..\..\..\Debug
+:EOF
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -216,7 +224,7 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Release/icsneolegacy.lib</ImportLibrary>
+      <ImportLibrary>$(ProjectDir)$(Platform)\$(Configuration)\icsneolegacy.lib</ImportLibrary>
       <ModuleDefinitionFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/platform/windows/icsneolegacy.def</ModuleDefinitionFile>
       <ProgramDataBaseFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Release/icsneolegacy.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
@@ -261,7 +269,7 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Release/icsneolegacy.lib</ImportLibrary>
+      <ImportLibrary>$(ProjectDir)$(Platform)\$(Configuration)\icsneolegacy.lib</ImportLibrary>
       <ModuleDefinitionFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/platform/windows/icsneolegacy.def</ModuleDefinitionFile>
       <ProgramDataBaseFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Release/icsneolegacy.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
@@ -269,6 +277,14 @@
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>if NOT EXIST ..\..\..\..\..\Release GOTO EOF
+echo Executing icsneolegacy post build step
+ECHO copy "$(ProjectDir)$(Platform)\$(Configuration)\icsneolegacy.dll" ..\..\..\..\..\Release
+copy "$(ProjectDir)$(Platform)\$(Configuration)\icsneolegacy.dll" ..\..\..\..\..\Release
+:EOF
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo\api\icsneolegacy\icsneolegacy.cpp" />
