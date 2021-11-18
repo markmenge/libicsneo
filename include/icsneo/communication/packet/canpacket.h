@@ -50,6 +50,91 @@ struct HardwareCANPacket {
 	} timestamp;
 };
 
+#define DATA_ON_WIRE_DECODER_DEVELOPMENT
+#ifdef DATA_ON_WIRE_DECODER_DEVELOPMENT
+#pragma pack(push, 1)
+// From std::vector<uint8_t> EthernetPacketizer::EthernetPacket::getBytestream() const
+struct EthHeader
+{
+	uint8_t destMAC[6];		// 0..5
+	uint8_t srcMAC[6];		// 6..11
+	uint16_t Protocol;		// Should be 0xcab1	12..13  // Big endian
+	uint32_t icsEthernetHeader; // 0xaaaa5555 OK	14..17	// Big endian
+};
+
+struct IcsCan11BitArb
+{
+	uint8_t ArbID_3_11;	// 0
+	uint8_t ArbID_0_2; // 1
+	int GetArbID() { return (ArbID_3_11 << 3) + (ArbID_0_2 >> 5); }
+};
+
+struct IcsCanPacket11 // 15 bytes
+{
+	uint8_t NetworkID : 4;		// Network::NetID::Main51  whatever that means  18
+	uint8_t Size: 4;			// DLC
+	uint16_t DescriptionID;		// big endian 19..20
+	IcsCan11BitArb ArbID;		// 21..22
+	uint8_t LengthNibble : 4;	// 23
+	uint8_t statusNibble : 4;
+	uint8_t data[8];			// 24..32
+};
+
+struct IcsCanPacket11Fd
+{
+	uint8_t NetworkID : 4;		// Network::NetID::Main51  whatever that means  18
+	uint8_t Size: 4;
+	uint16_t DescriptionID;		// big endian 19..20
+
+	IcsCan11BitArb ArbID;		// 21..22
+	uint8_t FDFrame = 0xF;		// 23
+	uint8_t LengthNibble : 4;	// 24
+	uint8_t statusNibble : 4;
+	uint8_t data[64];			// 25..89
+};
+
+struct IcsCan29BitArb
+{
+	uint8_t ArbID_28_21;		// byte 0
+	uint8_t ArbID_16_17:2;		// byte 1
+	uint8_t :1;
+	uint8_t b29:1;				// if 1, then extended
+	uint8_t :1;
+	uint8_t ArbID_18_20:3;
+	uint8_t ArbID_8_15;			// byte 2
+	uint8_t ArbID_0_7;			// byte 3
+
+	int GetArbID() {
+		return ArbID_0_7 + (ArbID_8_15 << 8) + (ArbID_28_21 << 21) + (ArbID_16_17 << 16) + (ArbID_18_20 << 18);
+	}
+};
+
+struct IcsCanPacket29 // 29 bit
+{
+	uint8_t NetworkID : 4;		// byte 18.0..4 with Network::NetID::Main51  whatever that means		| 0
+	uint8_t Size: 4;
+	uint16_t DescriptionID;		// 19..20 big endian													| 1..2
+	IcsCan29BitArb ArbID;		// 21..24																| 3..6
+	uint8_t LengthNibble : 4;	// 25
+	uint8_t statusNibble : 4;
+	uint8_t data[8];			// 26
+};
+
+struct IcsCanPacket29Fd // 29 bit
+{
+	uint8_t NetworkID : 4;		// Network::NetID::Main51  whatever that means  18
+	uint8_t Size: 4;
+	uint16_t DescriptionID;		// 19..20 big endian 
+	IcsCan29BitArb ArbID;		// 21..24
+	uint8_t FDFrame = 0xF;		// 25
+	uint8_t LengthNibble : 7;	// 26.0..6
+	uint8_t BaudRateSwitch : 1; // 26.7
+	uint8_t data[64];			// 27..91
+};
+
+#endif DATA_ON_WIRE_DECODER_DEVELOPMENT
+#pragma pack(pop)
+
 }
 
 #endif // __cplusplus

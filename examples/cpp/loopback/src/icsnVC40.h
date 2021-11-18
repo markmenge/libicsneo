@@ -1154,3 +1154,5 @@ typedef struct _stCM_ISO157652_RxMessage
 	unsigned char reserved[16];
         
 }stCM_ISO157652_RxMessage;
+
+

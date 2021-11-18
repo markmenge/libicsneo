@@ -1,6 +1,6 @@
 # libicsneo C++ Example
 
-This is an example console application which uses libicsneo to connect to an Intrepid Control Systems hardware device. It has both interactive and simple examples for sending and receiving CAN & CAN FD traffic.
+This is an example console application which uses libicsneo to connect to an Intrepid Control Systems hardware device and perform tests
 
 ## Building
 

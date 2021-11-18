@@ -25,3 +25,4 @@ endif()
 
 add_executable(libicsneocpp-loopback-example src/VCExample.cpp src/icsneo40DLLAPI.cpp src/stdafx.cpp)
 target_link_libraries(libicsneocpp-loopback-example icsneocpp icsneolegacy)
+

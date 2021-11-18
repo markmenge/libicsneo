@@ -169,6 +169,7 @@
       <ImportLibrary>$(ProjectDir)$(Platform)\$(Configuration)\icsneoc.lib</ImportLibrary>
       <ProgramDataBaseFile>$(ProjectDir)$(Platform)\$(Configuration)\icsneoc.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -210,7 +211,7 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Release/icsneoc.lib</ImportLibrary>
+      <ImportLibrary>$(ProjectDir)$(Platform)\$(Configuration)\icsneoc.lib</ImportLibrary>
       <ProgramDataBaseFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Release/icsneoc.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -254,7 +255,7 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Release/icsneoc.lib</ImportLibrary>
+      <ImportLibrary>$(ProjectDir)$(Platform)\$(Configuration)\icsneoc.lib</ImportLibrary>
       <ProgramDataBaseFile>C:\iTest\Trunk\Source\iTest_Drivers\CAN_XC16\libicsneo/build/Release/icsneoc.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>

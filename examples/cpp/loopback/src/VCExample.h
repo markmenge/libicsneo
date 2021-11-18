@@ -6,7 +6,7 @@ void ListDevices(void);
 void ConnectToDevice(int num);
 void DisconnectFromDevice(void);
 void GetMessagesFromDevice(BOOL bQuiet = FALSE);
-void SendMessageFromDevice(BOOL bQuiet = FALSE, BOOL bFd = TRUE);
+void SendMessageFromDevice(BOOL bQuiet = FALSE, BOOL bFd = TRUE, BOOL b29 = FALSE);
 void GetErrorsFromDevice(void);
 void SetHSCANBaudRatetoDevice(int iRateToUse);
 

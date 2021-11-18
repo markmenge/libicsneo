@@ -83,96 +83,6 @@ std::shared_ptr<CANMessage> HardwareCANPacket::DecodeToMessage(const std::vector
 	return msg;
 }
 
-#pragma pack(push, 1)
-// From std::vector<uint8_t> EthernetPacketizer::EthernetPacket::getBytestream() const
-
-struct IcsCan29BitArb
-{
-	uint8_t ArbID_28_21;		// byte 0
-	uint8_t ArbID_16_17:2;		// byte 1
-	uint8_t :1;
-	uint8_t b29:1;
-	uint8_t :1;
-	uint8_t ArbID_18_20:3;
-	uint8_t ArbID_8_15;			// byte 2
-	uint8_t ArbID_0_7;			// byte 3
-
-	int GetArbID() { return ArbID_0_7 + (ArbID_8_15 << 8) + (ArbID_28_21 << 21) + (ArbID_16_17 << 16) + (ArbID_18_20 << 18); }
-};
-
-struct IcsCanPacket29 // 29 bit
-{
-	//uint8_t destMAC[6];		// 0..5
-	//uint8_t srcMAC[6];		// 6..11
-	//uint16_t Protocol;		// Should be 0xcab1	12..13  // Big endian
-	//uint32_t icsEthernetHeader;// 0xaaaa5555 OK	14..17	// Big endian
-	uint8_t NetworkID : 4;		// byte 18.0..4 with Network::NetID::Main51  whatever that means
-	uint8_t Size: 4;
-	uint16_t DescriptionID;		// 19..20 big endian
-	IcsCan29BitArb ArbID;		// 21..24
-	uint8_t LengthNibble : 4;	// 25
-	uint8_t statusNibble : 4;
-	uint8_t data[8];			// 26
-	uint8_t zero;				// 27
-};
-
-struct IcsCanPacket29Fd // 29 bit
-{
-	//uint8_t destMAC[6];		// 0..5
-	//uint8_t srcMAC[6];		// 6..11
-	//uint16_t Protocol;		// Should be 0xcab1	12..13  // Big endian
-	//uint32_t icsEthernetHeader; // 0xaaaa5555 OK	14..17	// Big endian
-	uint8_t NetworkID : 4;		// Network::NetID::Main51  whatever that means  18
-	uint8_t Size: 4;
-	uint16_t DescriptionID;		// 19..20 big endian 
-	IcsCan29BitArb ArbID;		// 21..24
-	uint8_t FDFrame = 0xF;		// 25
-	uint8_t LengthNibble : 7;	// 26.0..6
-	uint8_t BaudRateSwitch : 1; // 26.7
-	uint8_t data[64];			// 27..91
-	uint8_t zero;				// 92
-};
-
-struct IcsCan11BitArb
-{
-	uint8_t ArbID_3_11;	// 0
-	uint8_t ArbID_0_2; // 1
-	int GetArbID() { return (ArbID_3_11 << 3) + (ArbID_0_2 >> 5); }
-};
-
-struct IcsCanPacket11
-{
-	//uint8_t destMAC[6];		// 0..5
-	//uint8_t srcMAC[6];		// 6..11
-	//uint16_t Protocol;		// Should be 0xcab1	12..13  // Big endian
-	//uint32_t icsEthernetHeader; // 0xaaaa5555 OK	14..17	// Big endian
-	uint8_t NetworkID : 4;		// Network::NetID::Main51  whatever that means  18
-	uint8_t Size: 4;
-	uint16_t DescriptionID;		// big endian 19..20
-	IcsCan11BitArb ArbID;		// 21..22
-	uint8_t LengthNibble : 4;	// 23
-	uint8_t statusNibble : 4;
-	uint8_t data[8];			// 24
-	uint8_t zero;				// 25
-};
-
-struct IcsCanPacket11Fd
-{
-	//uint8_t destMAC[6];		// 0..5
-	//uint8_t srcMAC[6];		// 6..11
-	//uint16_t Protocol;		// Should be 0xcab1	12..13  // Big endian
-	//uint32_t icsEthernetHeader; // 0xaaaa5555 OK	14..17	// Big endian
-	uint8_t NetworkID : 4;		// Network::NetID::Main51  whatever that means  18
-	uint8_t Size: 4;
-	uint16_t DescriptionID;		// big endian 19..20
-	IcsCan11BitArb ArbID;		// 21..22
-	uint8_t LengthNibble : 4;	// 23
-	uint8_t statusNibble : 4;
-	uint8_t data[64];			// 24
-	uint8_t zero;				// 92
-};
-#pragma pack(pop)
-
 bool HardwareCANPacket::EncodeFromMessage(const CANMessage& message, std::vector<uint8_t>& result, const device_eventhandler_t& report) {
 	if(message.isCANFD && message.isRemote) {
 		report(APIEvent::Type::RTRNotSupported, APIEvent::Severity::Error);
@@ -288,7 +198,7 @@ bool HardwareCANPacket::EncodeFromMessage(const CANMessage& message, std::vector
 	}
 
 	// Pre-allocate as much memory as we will possibly need for speed
-	result.reserve(17 + dataSize + paddingBytes);
+	result.reserve(16 + dataSize + paddingBytes);
 
 	result.push_back(0 /* byte count here later */ << 4 | (uint8_t(message.network.getNetID()) & 0xF));
 
@@ -337,7 +247,6 @@ bool HardwareCANPacket::EncodeFromMessage(const CANMessage& message, std::vector
 	// Now finally the payload
 	result.insert(result.end(), message.data.begin(), message.data.end());
 	result.resize(result.size() + paddingBytes);
-	result.push_back(0);
 
 	// Fill in the length byte from earlier
 	result[0] |= result.size() << 4;

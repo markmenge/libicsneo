@@ -179,9 +179,17 @@ bool LoadDLLAPI(HINSTANCE &hAPIDLL)
 	{
 		if ((hAPIDLL = LoadLibrary("../../../icsneolegacy.dll")) == NULL)
 		{
-			printf("Problem loading icsneolegacy.dll\nMake sure dll is accessible");
-			return false;
+			printf("LoadLibrary(\"../../../icsneolegacy.dll\") failed.\n");
+			if ((hAPIDLL = LoadLibrary("icsneolegacy.dll")) == NULL)
+			{
+				printf("Problem loading icsneolegacy.dll\nMake sure dll is accessible");
+				return false;
+			}
+			else
+				printf("LoadLibrary(\"icsneolegacy.dll\") succeeded.");
 		}
+		else
+			printf("LoadLibrary(\"../../../icsneolegacy.dll\") succeeded.\n");
 	}
 	icsneoFindDevices =    (FINDNEODEVICES) GetProcAddress(hAPIDLL,              "icsneoFindDevices");
 	icsneoOpenNeoDevice =     (OPENNEODEVICE) GetProcAddress(hAPIDLL,               "icsneoOpenNeoDevice");

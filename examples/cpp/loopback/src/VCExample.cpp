@@ -123,10 +123,10 @@ int _tmain(int argc, _TCHAR* argv[])
 			GetMessagesFromDevice();
 			break;
 		case 'D': //D - Send CANFD Message
-			SendMessageFromDevice(false, true);
+			SendMessageFromDevice(false, true, true);
 			break;
 		case 'E': // Send CAN29 Message
-			SendMessageFromDevice(false, false);
+			SendMessageFromDevice(false, false, true);
 			break;
 		case 'F': // Get errors
 			GetErrorsFromDevice();
@@ -336,7 +336,7 @@ void GetMessagesFromDevice(BOOL bQuiet)
 }
 
 //----------------------------------------------------------------------------
-void SendMessageFromDevice(BOOL bQuiet, BOOL bFd)
+void SendMessageFromDevice(BOOL bQuiet, BOOL bFd, BOOL b29)
 {
 
 	long lResult; 
@@ -360,7 +360,7 @@ void SendMessageFromDevice(BOOL bQuiet, BOOL bFd)
 		stMessagesTx.Data[i] = i;
 
 	//Send on HS CAN
-	stMessagesTx.NetworkID = NETID_HSCAN; 
+	stMessagesTx.NetworkID = NETID_HSCAN;
 
 	//Set the ID
 	stMessagesTx.ArbIDOrHeader = 0x123;    
@@ -393,6 +393,8 @@ void SendMessageFromDevice(BOOL bQuiet, BOOL bFd)
 		stMessagesTx.StatusBitField3 = 0; //Enable bitrate switch
 		stMessagesTx.StatusBitField4 = 0;
 	}
+	if (b29)
+		stMessagesTx.StatusBitField |= SPY_STATUS_XTD_FRAME;
 
 	// Transmit the assembled message
 	lResult = icsneoTxMessagesEx(m_hObject, &stMessagesTx, stMessagesTx.NetworkID, 1, &iNumberSent, 0);
@@ -482,7 +484,7 @@ void LoopbacktestTxRx(int *pNumMessages, int *pNumLost, int *pNumErrors, BOOL bU
 		// Check the messages are correct
 		for (iMsg = 0; iMsg < lNumberOfMessages; iMsg++)
 		{
-			if (NETID_ETHERNET == stMessages[iMsg].NetworkID || 52 == stMessages[iMsg].NetworkID)
+			if (NETID_ETHERNET == stMessages[iMsg].NetworkID || 52 == stMessages[iMsg].NetworkID || 0 == stMessages[iMsg].NetworkID)
 				continue;
 			if (0 == LoopbackNetworkID(stMessages[iMsg].NetworkID))
 			{
