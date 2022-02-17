@@ -189,8 +189,14 @@ bool LoadDLLAPI(HINSTANCE &hAPIDLL)
 				printf("LoadLibrary(\"icsneolegacy.dll\") succeeded.");
 		}
 		else
-			printf("LoadLibrary(\"../../../icsneolegacy.dll\") succeeded.\n");
+		{
+
+		}
 	}
+	char path[MAX_PATH];
+	GetModuleFileName(hAPIDLL, path, MAX_PATH);
+	printf("DLL module path:%s\n", path);
+
 	icsneoFindDevices =    (FINDNEODEVICES) GetProcAddress(hAPIDLL,              "icsneoFindDevices");
 	icsneoOpenNeoDevice =     (OPENNEODEVICE) GetProcAddress(hAPIDLL,               "icsneoOpenNeoDevice");
  	icsneoOpenNeoDeviceByChannels = (OPENNEODEVICEBYCHANNELS) GetProcAddress(hAPIDLL, "icsneoOpenNeoDeviceByChannels");
