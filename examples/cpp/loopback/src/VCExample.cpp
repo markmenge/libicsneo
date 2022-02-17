@@ -733,8 +733,12 @@ void SetAllCANBaudRates(int iBitRateToUse)
 	}
 	for (i = 0; i < g_iNumCanNetworks; i++)
 	{
+
+		icsneoEnableNetworkComEx(m_hObject, NetWorkIds[i], false);
+		Sleep(100);
 		//Set the bit rate
 		iResult = icsneoSetBitRate(m_hObject, iBitRateToUse, NetWorkIds[i]);
+		icsneoEnableNetworkComEx(m_hObject, NetWorkIds[i], true);
 		Sleep(100);
 		if (iResult == 0)  
 		{
